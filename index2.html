@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation-name: move;
+        }
+
+        .clock{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(10, 194, 214);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .clock::before{
+            content: '';
+            height: 7px;
+            width: 100px;
+            background-color: brown;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: left;
+            animation: longHand 30s linear infinite;
+        }
+
+        @keyframes longHand{
+            from{
+                transform:rotate(-90deg)
+            }
+            to{
+                transform: rotate(270deg)
+            }
+        }
+
+        
+
+        .clock::after{
+            content: '';
+            height: 7px;
+            width: 60px;
+            background-color: rgb(17, 237, 39);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: left;
+            animation: shortHand 100s linear infinite;
+        }
+
+
+        @keyframes shortHand{
+            from{
+                transform:rotate(90deg)
+            }
+            to{
+                transform: rotate(270deg)
+            }
+        }
+
+        .dot{
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            border-radius: 50%;
+        }
+
+        .twelve{
+            font-size: larger;
+            position: absolute;
+            transform: translate(50%, 50%);
+            left: 45%;
+            top: 1%;
+        }
+
+        .six{
+            font-size: larger;
+            position: absolute;
+            transform: translate(50%, 50%);
+            left: 45%;
+            bottom: 1%;
+        }
+
+        .three{
+            font-size: larger;
+            position: absolute;
+            transform: translate(50%, 50%);
+            right: 10%;
+            top: 40%;
+        }
+
+        .nine{
+            font-size: larger;
+            position: absolute;
+            transform: translate(50%, 50%);
+            left: 10%;
+            top: 40%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="clock">
+        <div class="dot"></div>
+        <p class="twelve">12</p>
+        <p class="six">6</p>
+        <p class="three">3</p>
+        <p class="nine">9</p>
+    </div>
+
+
+</body>
+</html>
